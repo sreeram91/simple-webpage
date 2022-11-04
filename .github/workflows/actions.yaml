@@ -1,0 +1,17 @@
+name: Simple-web
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-host:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v2
+
+      - run: docker build -t sreeram91/sample-web .
+
+      - run: docker run -p 3002:3001 sreeram91/sample-web
+
