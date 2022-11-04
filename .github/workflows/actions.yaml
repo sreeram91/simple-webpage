@@ -11,13 +11,11 @@ jobs:
       - name: checkout source code
         uses: actions/checkout@v2
         
-      - name: setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          
-      - run: docker build -t sreeram91/sample-web .
+      - name: build the image
+        run: docker build -f Dockerfile -t sreeram91/sample-web .
+
       
-      - run: docker run -d -p 3002:3001 sreeram91/sample-web
+      
+      
       
 
